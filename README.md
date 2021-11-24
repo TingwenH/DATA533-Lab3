@@ -1,12 +1,19 @@
 # Budget-Planning
 
 # Subpackage1:user #
-*Module1:instruction
-  *In this module, a user can get information of what services are available, decide if he is interested in the serivces and if he want to share this serivce with friends.
-*Module2:passwordmemorizer
-  *In this module, a user can save his account information(userid, password) in computer by `create`, update information by `update`, show information by `show` and delete information by `delete`.
-*Module3:recommendation
-  *In this module, a user is require to input his personal information.Based on his information, we provide recommended resources for him. Also collect the information about membership bugeting.
+* Module1:instruction
+  	* Service Available: Show the instruction of each service
+  	* Interest: Decide if a user is interested in the serivces
+  	* Share: If a user want to share this serivce with friends and to whom.
+* Module2:passwordmemorizer
+  	* Save his account information(userid, password) in computer by `create`
+  	* Update information by `update`
+  	* Delete information by `delete`
+  	* Show information by `show`
+* Module3:recommendation
+  	* Personal Information:collect information
+  	* Recommended resources:website, news, social media platforms
+  	* Membership bugeting:free, baisc, premium
   
 # Subpackage2: Budget
 
