@@ -18,7 +18,8 @@
 # Subpackage2: Budget
 
 * **Module1:Free Membership**
- 	* show_budget_chart(): Shows chart of current savings vs goal
+ 	* show_budget_chart(): 
+ 		Shows chart of current savings vs goal
 	* add_amount(): Add money to the savings
 	* withdraw_amount(): Withdraw money from the savings
 
