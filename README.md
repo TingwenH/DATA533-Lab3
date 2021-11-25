@@ -17,7 +17,7 @@
   
 # Subpackage2: Budget
 
-* **Module1:Free Membership**
+### * Module1:Free Membership
  	* show_budget_chart(): 
  		- Shows chart of current savings vs goal
 	* add_amount(): 
