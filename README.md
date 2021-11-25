@@ -18,14 +18,14 @@
 # Subpackage2: Budget
 
 ### * Module1:Free Membership
- 	* show_budget_chart(): 
+ 	* **show_budget_chart()**
  		- Shows chart of current savings vs goal
 	* add_amount(): 
 		- Add money to the savings
 	* withdraw_amount():
 		- Withdraw money from the savings
 
-* **Module2:Basic Membership**
+### * Module2:Basic Membership
 	* user_expenditure_data(): 
 		- Get user’s data on expenditure area and the expenditure for a month
 	* expenditure_chart():
