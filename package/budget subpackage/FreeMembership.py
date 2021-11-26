@@ -1,18 +1,6 @@
 import plotly.graph_objects as go
 
 class FreeMemberShip:
-    def __init__(self,user_budget):
-        self.__user_budget=user_budget
-        self.__balance=0
-    
-    @property
-    def user_budget(self):
-        return self.__user_budget
-    
-    def show_budget_chart(self):
-        import plotly.graph_objects as go
-
-class FreeMemberShip:
     def __init__(self,user_budget) -> None:
         self.__user_budget=user_budget
         self.__balance=0
@@ -58,5 +46,5 @@ class FreeMemberShip:
 
      
 #testing
-free_mem=FreeMemberShip(25000)
-free_mem.add_amount(1500)
+# free_mem=FreeMemberShip(25000)
+# free_mem.add_amount(1500)
