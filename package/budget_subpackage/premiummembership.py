@@ -3,7 +3,7 @@ import plotly.express as px
 import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
-import freemembership
+#import freemembership
 
 
 class PremiumMembership(BasicMembership):
@@ -71,12 +71,12 @@ class PremiumMembership(BasicMembership):
             reward="50% off of your membership for the next year"
         return reward        
 
-if __name__=="__main__":
-    #print("lala")
-    pm=PremiumMembership()
-    pm.expenditure_chart()
-    annual=pm.analysis_and_suggestion()
-    fm =freemembership.FreeMemberShip(annual)
-    fm.add_amount(500)
-    #
-    #pm.ideal_expenditure_chart()
+# if __name__=="__main__":
+#     #print("lala")
+#     pm=PremiumMembership()
+#     pm.expenditure_chart()
+#     annual=pm.analysis_and_suggestion()
+#     fm =freemembership.FreeMemberShip(annual)
+#     fm.add_amount(500)
+#     #
+#     #pm.ideal_expenditure_chart()

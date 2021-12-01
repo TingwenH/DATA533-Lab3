@@ -35,7 +35,7 @@ class FreeMemberShip:
         self.__balance+=amount
         self.show_budget_chart()
         
-    
+
     def withdraw_amount(self,amount):
         curr_balance=self.__balance-amount
         if(curr_balance<0):
@@ -45,6 +45,3 @@ class FreeMemberShip:
             self.show_budget_chart()                  
 
      
-#testing
-# free_mem=FreeMemberShip(25000)
-# free_mem.add_amount(1500)

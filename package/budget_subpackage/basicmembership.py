@@ -1,7 +1,7 @@
 import pandas as pd
 import plotly.express as px
-import freemembership
-
+#import freemembership
+#from package.budget_subpackage.freemembership import FreeMembership
 
 class BasicMembership:
     __percentage_list=[10,20,25]   
@@ -9,7 +9,7 @@ class BasicMembership:
         print("Please enter variable expenditure in user_data excel file. I would call insurances as fixed expenditure that cannot be avoided at all costs")
 
     def user_expenditure_data(self):                
-        user_data=pd.read_excel('/home/saisree/Desktop/Labs/Block3/533-softwaredev/Lab2/Budget-Planning/package/budget subpackage/user_data.xlsx')
+        user_data=pd.read_excel('/home/saisree/Desktop/Labs/Block3/533-softwaredev/Lab2/Budget-Planning/package/budget_subpackage/user_data.xlsx')
         data=user_data.T
         data.columns=data.iloc[0].values        
         data=data.iloc[1: , :]        
@@ -58,10 +58,10 @@ class BasicMembership:
         return reward
         
 
-basic=BasicMembership()
-annual=basic.analysis_and_suggestion()
-fm =freemembership.FreeMemberShip(annual)
-fm.add_amount(30)
+# basic=BasicMembership()
+# annual=basic.analysis_and_suggestion()
+# fm =freemembership.FreeMemberShip(annual)
+# fm.add_amount(30)
 #fm.show_budget_chart()
 
 
