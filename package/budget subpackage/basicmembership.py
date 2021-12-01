@@ -1,12 +1,12 @@
 import pandas as pd
 import plotly.express as px
+import freemembership
 
 class BasicMembership:
     def __init__(self) :
-        pass
+        print("Please enter variable expenditure in user_data excel file. I would call insurances as fixed expenditure that cannot be avoided at all costs")
 
-    def user_expenditure_data(self):        
-        print("Please enter variable expenditure. I would call insurances as fixed expenditure that cannot be avoided at all costs")
+    def user_expenditure_data(self):                
         user_data=pd.read_excel('/home/saisree/Desktop/Labs/Block3/533-softwaredev/Lab2/Budget-Planning/package/budget subpackage/user_data.xlsx')
         data=user_data.T
         data.columns=data.iloc[0].values        
@@ -22,8 +22,9 @@ class BasicMembership:
         figure.show()
 
     def analysis_and_suggestion(self):
-        monthly_allowance=10000
+        monthly_allowance=10000        
         data=self.user_expenditure_data()  
+        self.expenditure_chart()
         expenditure_list=list(data.iloc[0].values)
         total_expenditure=sum(expenditure_list)
         max_expenditure=max(expenditure_list)
@@ -42,7 +43,7 @@ class BasicMembership:
         option=int(input("Enter an option to know about the reward points and expected annual savings goal"))        
         reward=self.rewards_calculator(option,savings_per_month[option-1])   
         print(reward)
-        print("Your expected annual savings is {} !!!!".format(savings_per_month[option-1]*12))
+        print("Your expected annual savings is {} !!!!".format(savings_per_month[option-1]*12))        
         return savings_per_month[option-1]*12
 
     def rewards_calculator(self,option,savings):
@@ -56,8 +57,11 @@ class BasicMembership:
         return reward
         
 
-basic=BasicMembership()
-#basic.expenditure_chart()
-annual=basic.analysis_and_suggestion()
+# basic=BasicMembership()
+# annual=basic.analysis_and_suggestion()
+# fm =freemembership.FreeMemberShip(annual)
+# fm.add_amount(30)
+# #fm.show_budget_chart()
+
 
             
