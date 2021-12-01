@@ -58,11 +58,11 @@ class BasicMembership:
         return reward
         
 
-# basic=BasicMembership()
-# annual=basic.analysis_and_suggestion()
-# fm =freemembership.FreeMemberShip(annual)
-# fm.add_amount(30)
-# #fm.show_budget_chart()
+basic=BasicMembership()
+annual=basic.analysis_and_suggestion()
+fm =freemembership.FreeMemberShip(annual)
+fm.add_amount(30)
+#fm.show_budget_chart()
 
 
             
