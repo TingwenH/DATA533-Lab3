@@ -2,7 +2,9 @@ import pandas as pd
 import plotly.express as px
 import freemembership
 
+
 class BasicMembership:
+    __percentage_list=[10,20,25]   
     def __init__(self) :
         print("Please enter variable expenditure in user_data excel file. I would call insurances as fixed expenditure that cannot be avoided at all costs")
 
@@ -33,9 +35,8 @@ class BasicMembership:
         expenditure_allowance_percentage=round((max_expenditure/monthly_allowance)*100,2)
         expenditure_total_expense_percentage=round((max_expenditure/total_expenditure)*100,2)
         print("{} accounts for {} % of the monthly allowance and {} % of the total expenditure".format(max_expenditure_area,expenditure_allowance_percentage,expenditure_total_expense_percentage))
-        percentage_list=[10,20,25]    
-        reduced_expenditure=[ (1-0.01*percent)*max_expenditure for percent in percentage_list]    
-        savings_per_month=[0.01*percent*max_expenditure for percent in percentage_list]        
+        reduced_expenditure=[ (1-0.01*percent)*max_expenditure for percent in BasicMembership.__percentage_list]    
+        savings_per_month=[0.01*percent*max_expenditure for percent in BasicMembership.__percentage_list]        
         print("Based on your profile, our recommendation are the following. Choose the one that is most appropriate for you")
         print("1] Reduce the expenditure on shopping from {} to {} thus savings {} per month".format(max_expenditure,reduced_expenditure[0],savings_per_month[0]))
         print("2] Reduce the expenditure on shopping from {} to {} thus savings {} per month".format(max_expenditure,reduced_expenditure[1],savings_per_month[1]))

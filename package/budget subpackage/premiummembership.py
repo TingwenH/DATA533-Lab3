@@ -5,25 +5,26 @@ import numpy as np
 import plotly.graph_objects as go
 import freemembership
 
+
 class PremiumMembership(BasicMembership):
-    ideal_labels=["Groceries","Travel","Shopping","Restaurant","Others"]
-    ideal_values=[4,2,3,1,1]
+    __ideal_labels=["Groceries","Travel","Shopping","Restaurant","Others"]
+    __ideal_values=[4,2,3,1,1]
+    __percentage_list=[10,20,25]
 
     def __init__(self):
-        pass
+        super().__init__()
 
     def expenditure_chart(self):        
         monthly_allowance=10000
         data=self.user_expenditure_data()
         expenditure_allowance_percentage=data.iloc[0].values*100/monthly_allowance
-        ideal_data= pd.DataFrame([PremiumMembership.ideal_values],columns=PremiumMembership.ideal_labels)
+        ideal_data= pd.DataFrame([PremiumMembership.__ideal_values],columns=PremiumMembership.__ideal_labels)
         labels=data.columns
-        new_labels=[x if x in PremiumMembership.ideal_labels else "Others" for x in labels]
+        new_labels=[x if x in PremiumMembership.__ideal_labels else "Others" for x in labels]
         new_data=pd.DataFrame([data.iloc[0].values,expenditure_allowance_percentage],columns=new_labels)
         whole_data= pd.concat([new_data,ideal_data])
         self.__whole_data=whole_data.fillna(0)        
-        whole_labels=self.__whole_data.columns  
-        print(self.__whole_data)      
+        whole_labels=self.__whole_data.columns 
         fig = go.Figure(data=[
             go.Bar(name='Actual', x=whole_labels, y=self.__whole_data.iloc[1].values),
             go.Bar(name='Ideal', x=whole_labels, y=self.__whole_data.iloc[2].values)
@@ -36,17 +37,16 @@ class PremiumMembership(BasicMembership):
         diff_percentages=self.__whole_data.iloc[1].values-self.__whole_data.iloc[2].values
         whole_labels=self.__whole_data.columns
         top_three_areas=sorted(zip(diff_percentages, whole_labels), reverse=True)[:3]
-        percentage_list=[10,20,25] 
+         
         expenditure_diff,Areas=list(zip(*sorted(zip(diff_percentages, whole_labels), reverse=True)[:3]))
         savings_per_month=[]
-        for ind1 in range(0,len(percentage_list)):
+        print("Based on your profile, our recommendation are the following. Choose the one that is most appropriate for you")
+        for ind1 in range(0,len(PremiumMembership.__percentage_list)):
             sum_savings=0
             print(ind1+1,"--------------------------------------------------------------------------------")
             for ind2 in range(0,len(expenditure_diff)):
-                per=percentage_list[ind1]
-                diff=expenditure_diff[ind2]
-                #sugg_per=round((1-0.01*per)*diff,2)
-                #print(Areas[ind2],diff)
+                per=PremiumMembership.__percentage_list[ind1]
+                diff=expenditure_diff[ind2]                
                 curr_expenditure_amount=self.__whole_data.loc[0,Areas[ind2]].values[0]
                 
                 new_expense=round((1-0.01*per)*curr_expenditure_amount)
@@ -66,11 +66,10 @@ class PremiumMembership(BasicMembership):
         if(option==1):
             reward="Gift coupon to Starbucks and McDonalds worth {} per month".format(0.015*savings)
         elif(option==2):
-            reward="{} off of your next purchase on hudson bay with unlimited validity ".format(0.2*savings)
+            reward="{} off of your next purchase on hudson bay with unlimited validity ".format(0.15*savings)
         elif(option==3):
             reward="50% off of your membership for the next year"
-        return reward
-        #return super().rewards_calculator(option, savings)
+        return reward        
 
 if __name__=="__main__":
     #print("lala")
@@ -78,6 +77,6 @@ if __name__=="__main__":
     pm.expenditure_chart()
     annual=pm.analysis_and_suggestion()
     fm =freemembership.FreeMemberShip(annual)
-    fm.add_amount(1000)
+    fm.add_amount(500)
     #
     #pm.ideal_expenditure_chart()
