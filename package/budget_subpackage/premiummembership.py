@@ -5,8 +5,6 @@ import numpy as np
 import plotly.graph_objects as go
 #import freemembership
 
-
-
 class PremiumMembership(BasicMembership):
     __ideal_labels=["Groceries","Travel","Shopping","Restaurant","Others"]
     __ideal_values=[4,2,3,1,1]
@@ -15,8 +13,8 @@ class PremiumMembership(BasicMembership):
     def __init__(self):
         super().__init__()
 
-    def expenditure_chart(self):        
-        monthly_allowance=10000
+    def expenditure_chart(self,monthly_allowance):        
+        self.__monthly_allowance=monthly_allowance
         data=self.user_expenditure_data()
         expenditure_allowance_percentage=data.iloc[0].values*100/monthly_allowance
         ideal_data= pd.DataFrame([PremiumMembership.__ideal_values],columns=PremiumMembership.__ideal_labels)
@@ -34,11 +32,11 @@ class PremiumMembership(BasicMembership):
         fig.show()   
         
 
-    def analysis_and_suggestion(self):        
+    def analysis_and_suggestion(self,monthly_allowance):  
+        self.expenditure_chart(monthly_allowance)      
         diff_percentages=self.__whole_data.iloc[1].values-self.__whole_data.iloc[2].values
         whole_labels=self.__whole_data.columns
-        top_three_areas=sorted(zip(diff_percentages, whole_labels), reverse=True)[:3]
-         
+        top_three_areas=sorted(zip(diff_percentages, whole_labels), reverse=True)[:3]        
         expenditure_diff,Areas=list(zip(*sorted(zip(diff_percentages, whole_labels), reverse=True)[:3]))
         savings_per_month=[]
         print("Based on your profile, our recommendation are the following. Choose the one that is most appropriate for you")

@@ -15,18 +15,17 @@ class BasicMembership:
         data=data.iloc[1: , :]        
         return data
 
-    def expenditure_chart(self):
-        monthly_allowance=10000
+    def expenditure_chart(self,monthly_allowance):
+        self.__monthly_allowance=monthly_allowance
         data=self.user_expenditure_data()        
         labels=data.columns
         values=data.iloc[0].values/monthly_allowance      
         figure = px.pie(data,values=values,names=labels,hole=0.3,color_discrete_sequence=px.colors.sequential.RdBu)
         figure.show()
 
-    def analysis_and_suggestion(self):
-        monthly_allowance=10000        
+    def analysis_and_suggestion(self,monthly_allowance):               
         data=self.user_expenditure_data()  
-        self.expenditure_chart()
+        self.expenditure_chart(monthly_allowance)
         expenditure_list=list(data.iloc[0].values)
         total_expenditure=sum(expenditure_list)
         max_expenditure=max(expenditure_list)
