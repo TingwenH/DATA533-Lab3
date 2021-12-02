@@ -6,6 +6,7 @@ import plotly.graph_objects as go
 #import freemembership
 
 
+
 class PremiumMembership(BasicMembership):
     __ideal_labels=["Groceries","Travel","Shopping","Restaurant","Others"]
     __ideal_values=[4,2,3,1,1]
@@ -71,12 +72,3 @@ class PremiumMembership(BasicMembership):
             reward="50% off of your membership for the next year"
         return reward        
 
-# if __name__=="__main__":
-#     #print("lala")
-#     pm=PremiumMembership()
-#     pm.expenditure_chart()
-#     annual=pm.analysis_and_suggestion()
-#     fm =freemembership.FreeMemberShip(annual)
-#     fm.add_amount(500)
-#     #
-#     #pm.ideal_expenditure_chart()
