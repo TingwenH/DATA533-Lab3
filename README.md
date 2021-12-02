@@ -1,19 +1,29 @@
 # Budget-Planning
 
-# Subpackage1:user #
-* Module1:instruction
-  	* Service Available: Show the instruction of each service
-  	* Interest: Decide if a user is interested in the serivces
-  	* Share: If a user want to share this serivce with friends and to whom.
-* Module2:passwordmemorizer
-  	* Save his account information(userid, password) in computer by `create`
-  	* Update information by `update`
-  	* Delete information by `delete`
-  	* Show information by `show`
-* Module3:recommendation
-  	* Personal Information:collect information
-  	* Recommended resources:website, news, social media platforms
-  	* Membership bugeting:free, baisc, premium
+# Subpackage1: User #
+* **Module1:service**
+  	* **list()** 
+  		- List the service available
+  	* **show()** 
+  		- Show the detail of the service you choose
+  	* **choice()** 
+  		- Provide information about what membership you need in order to get that service
+
+* **Module2:password**
+  	* **show**
+  		- Show the password and userid stored
+  	* **update**
+  		- Update the account information
+  	* **deelete**
+  		- Delete account information
+
+* **Module3:personal_info**
+  	* **show**
+  		- Show collected information
+  	* **update**
+  		- Update information
+  	* **delete**
+  		- Delete information
   
 # Subpackage2: Budget
 
