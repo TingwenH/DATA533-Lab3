@@ -1,4 +1,4 @@
-from basicmembership import BasicMembership
+from .basicmembership import BasicMembership
 import plotly.express as px
 import pandas as pd
 import numpy as np

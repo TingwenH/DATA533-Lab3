@@ -12,15 +12,16 @@
 #     name: python3
 # ---
 
-
 class personal_info:
-    def __init__(self,userid,age = null,email = null,income = null):
+    def __init__(self,userid,age = 0,email = "",income = 0):
         self.userid = userid
         self.age = age
         self.email = email
         self.income = income
+        
     def show(self):
         print('Userid:{} Age:{} Email:{} Income:{}'.format(self.userid,self.age,self.email,self.income))
+
     def update(self,newuserid,newage,newemail,newincome):
         self.userid = newuserid
         self.age = newage

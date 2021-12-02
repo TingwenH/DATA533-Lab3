@@ -6,7 +6,7 @@ import plotly.express as px
 class BasicMembership:
     __percentage_list=[10,20,25]   
     def __init__(self) :
-        print("Please enter variable expenditure in user_data excel file. I would call insurances as fixed expenditure that cannot be avoided at all costs")
+        pass
 
     def user_expenditure_data(self):                
         user_data=pd.read_excel('/home/saisree/Desktop/Labs/Block3/533-softwaredev/Lab2/Budget-Planning/package/budget_subpackage/user_data.xlsx')
@@ -37,9 +37,9 @@ class BasicMembership:
         reduced_expenditure=[ (1-0.01*percent)*max_expenditure for percent in BasicMembership.__percentage_list]    
         savings_per_month=[0.01*percent*max_expenditure for percent in BasicMembership.__percentage_list]        
         print("Based on your profile, our recommendation are the following. Choose the one that is most appropriate for you")
-        print("1] Reduce the expenditure on shopping from {} to {} thus savings {} per month".format(max_expenditure,reduced_expenditure[0],savings_per_month[0]))
-        print("2] Reduce the expenditure on shopping from {} to {} thus savings {} per month".format(max_expenditure,reduced_expenditure[1],savings_per_month[1]))
-        print("3] Reduce the expenditure on shopping from {} to {} thus savings {} per month".format(max_expenditure,reduced_expenditure[2],savings_per_month[2]))
+        print("1] Reduce the expenditure on {} from {} to {} thus savings {} per month".format(max_expenditure_area,max_expenditure,reduced_expenditure[0],savings_per_month[0]))
+        print("2] Reduce the expenditure on {} from {} to {} thus savings {} per month".format(max_expenditure_area,max_expenditure,reduced_expenditure[1],savings_per_month[1]))
+        print("3] Reduce the expenditure on {} from {} to {} thus savings {} per month".format(max_expenditure_area,max_expenditure,reduced_expenditure[2],savings_per_month[2]))
         option=int(input("Enter an option to know about the reward points and expected annual savings goal"))        
         reward=self.rewards_calculator(option,savings_per_month[option-1])   
         print(reward)
