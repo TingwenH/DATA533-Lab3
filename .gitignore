@@ -1,0 +1,6 @@
+__pycache__/
+package/__pycache__/
+package/budget_subpackge/__pycache__/
+package/user subpackage/__pycache__/
+
+*.pyc
