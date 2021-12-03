@@ -1,7 +1,7 @@
 import plotly.graph_objects as go
 
 class FreeMemberShip:
-    def __init__(self,user_budget) -> None:
+    def __init__(self,user_budget) :
         self.__user_budget=user_budget
         self.__balance=0
     
