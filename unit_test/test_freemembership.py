@@ -37,6 +37,10 @@ class TestFreeMembersip(unittest.TestCase):
         free_mem=FreeMemberShip(budget)
         free_mem.set_balance(balance)
         result=free_mem.withdraw_amount(amount)
+        test_result=balance-amount
+        if(amount>balance):
+            test_result="Please enter lesser amount"
+        self.assertEqual(result,test_result)
         
 
     def tearDown(self):
@@ -47,6 +51,7 @@ class TestFreeMembersip(unittest.TestCase):
         print("tearDownClass")
 
 TestFreeMembersip().test_add_amount(2000,100)
+TestFreeMembersip().test_withdraw_amount(2000,250,100)
         
 
 
