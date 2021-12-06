@@ -28,9 +28,9 @@ class personal_info:
         self.email = newemail
         self.income = newincome
     def delete(self):
-        self.userid = ' '
-        self.age = ' '
-        self.email = ' '
-        self.income = ' '
+        self.userid = ''
+        self.age = ''
+        self.email = ''
+        self.income = ''
 
 
