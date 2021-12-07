@@ -8,9 +8,29 @@ import package.user_subpackage.bank_info as bank_info
 class test_user_service(unittest.TestCase):
     def setUp(self):
         self.service = service.Service()
+        self.service2 = service.Service()
+        self.service3 = service.Service()
+        self.service4 = service.Service()
+        self.service5 = service.Service()
     def test_service(self):
         with patch('sys.stdout',new=StringIO()) as fakeoutput:
             self.service.list()
+            self.assertEqual(fakeoutput.getvalue(),"1.Bank information storage 2. Simple savings tracker 3.Basic budget Planning 4.Detailed analysis and customized suggestion\n")
+        print("test service_list success")
+        with patch('sys.stdout',new=StringIO()) as fakeoutput:
+            self.service2.list()
+            self.assertEqual(fakeoutput.getvalue(),"1.Bank information storage 2. Simple savings tracker 3.Basic budget Planning 4.Detailed analysis and customized suggestion\n")
+        print("test service_list success")
+        with patch('sys.stdout',new=StringIO()) as fakeoutput:
+            self.service3.list()
+            self.assertEqual(fakeoutput.getvalue(),"1.Bank information storage 2. Simple savings tracker 3.Basic budget Planning 4.Detailed analysis and customized suggestion\n")
+        print("test service_list success")
+        with patch('sys.stdout',new=StringIO()) as fakeoutput:
+            self.service4.list()
+            self.assertEqual(fakeoutput.getvalue(),"1.Bank information storage 2. Simple savings tracker 3.Basic budget Planning 4.Detailed analysis and customized suggestion\n")
+        print("test service_list success")
+        with patch('sys.stdout',new=StringIO()) as fakeoutput:
+            self.service5.list()
             self.assertEqual(fakeoutput.getvalue(),"1.Bank information storage 2. Simple savings tracker 3.Basic budget Planning 4.Detailed analysis and customized suggestion\n")
         print("test service_list success")
         service_list=[]
@@ -23,12 +43,48 @@ class test_user_service(unittest.TestCase):
             with patch('sys.stdout',new=StringIO()) as fakeoutput:
                 self.service.show(i+1)
                 self.assertEqual(fakeoutput.getvalue(),service_list[i])
+        for i in range(5):
+            with patch('sys.stdout',new=StringIO()) as fakeoutput:
+                self.service2.show(i+1)
+                self.assertEqual(fakeoutput.getvalue(),service_list[i])
+        for i in range(5):
+            with patch('sys.stdout',new=StringIO()) as fakeoutput:
+                self.service3.show(i+1)
+                self.assertEqual(fakeoutput.getvalue(),service_list[i])
+        for i in range(5):
+            with patch('sys.stdout',new=StringIO()) as fakeoutput:
+                self.service4.show(i+1)
+                self.assertEqual(fakeoutput.getvalue(),service_list[i])
+        for i in range(5):
+            with patch('sys.stdout',new=StringIO()) as fakeoutput:
+                self.service5.show(i+1)
+                self.assertEqual(fakeoutput.getvalue(),service_list[i])
         print("test service_show success")
         for i in range(1,5):
             self.service.choice(i)
             self.assertEqual(self.service.getChoice(),i)
         self.service.choice(5)
         self.assertEqual(self.service.getChoice(),-1)
+        for i in range(1,5):
+            self.service2.choice(i)
+            self.assertEqual(self.service2.getChoice(),i)
+        self.service2.choice(5)
+        self.assertEqual(self.service2.getChoice(),-1)
+        for i in range(1,5):
+            self.service3.choice(i)
+            self.assertEqual(self.service3.getChoice(),i)
+        self.service3.choice(5)
+        self.assertEqual(self.service3.getChoice(),-1)
+        for i in range(1,5):
+            self.service4.choice(i)
+            self.assertEqual(self.service4.getChoice(),i)
+        self.service4.choice(5)
+        self.assertEqual(self.service4.getChoice(),-1)
+        for i in range(1,5):
+            self.service5.choice(i)
+            self.assertEqual(self.service5.getChoice(),i)
+        self.service5.choice(5)
+        self.assertEqual(self.service5.getChoice(),-1)
         print("test service_choice success ")
 
 if __name__ == '__main__':
