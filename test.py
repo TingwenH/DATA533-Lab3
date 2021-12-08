@@ -4,7 +4,7 @@ from unit_test.test_freemembership import TestFreeMembersip
 from unit_test.test_premiummembership import TestPremiumMembersip
 from unit_test.test_user_bankinfo import test_user_bank_info
 from unit_test.test_user_personal_info import test_user_personal_info
-#from unit_test.test_user_service import test_user_service
+from unit_test.test_user_service import test_user_service
 
 # if __name__=="__main__":
 #     unittest.main(argv=[''],verbosity=2)
