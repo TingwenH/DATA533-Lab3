@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 from pandas.testing import assert_frame_equal
 from package.budget_subpackage.basicmembership import BasicMembership
+import io
+import sys
 
 class TestBasicMembersip(unittest.TestCase):
     @classmethod
@@ -73,23 +75,31 @@ class TestBasicMembersip(unittest.TestCase):
        
     def test_analysis_and_suggestion(self):
         basic_mem1=BasicMembership()
-        option=int(input("In Basic test, enter option"))
-        self.assertEqual(option,1)
+        test_input = io.BytesIO(b"1\n")
+        sys.stdin = test_input
 
         result1=basic_mem1.analysis_and_suggestion(10000)
         self.assertEqual(result1,1200.0)
-        
-        option=int(input("In Basic test, enter option"))
-        self.assertEqual(option,2)
+        self.assertAlmostEqual(result1,1200.00001,2)
 
-        result1=basic_mem1.analysis_and_suggestion(10000)
+        input_text = b"2\n"
+        test_input.write(input_text)
+        test_input.seek(-len(input_text), io.SEEK_CUR)       
+        
+
+        result1=basic_mem1.analysis_and_suggestion(7000)
+        self.assertEqual(result1,2400)
         self.assertAlmostEqual(result1,2400.001,2)
 
-        option=int(input("In Basic test, enter option"))
-        self.assertEqual(option,3)
+        input_text = b"3\n"
+        test_input.write(input_text)
+        test_input.seek(-len(input_text), io.SEEK_CUR)    
 
         result1=basic_mem1.analysis_and_suggestion(10000)
         self.assertAlmostEqual(result1,3000.001,2)
+
+        test_input.close()
+        sys.stdin = sys.__stdin__
     
     
     

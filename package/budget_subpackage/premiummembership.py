@@ -13,6 +13,9 @@ class PremiumMembership(BasicMembership):
     def __init__(self):
         super().__init__()
 
+    def get_whole_data(self):
+        return self.__whole_data
+
     def expenditure_chart(self,monthly_allowance):        
         self.__monthly_allowance=monthly_allowance
         data=self.user_expenditure_data()

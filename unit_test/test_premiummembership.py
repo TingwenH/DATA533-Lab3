@@ -1,11 +1,9 @@
 import unittest 
 import pandas as pd
 import numpy as np
-from pandas.testing import assert_frame_equal
+import io
+import sys
 from package.budget_subpackage.premiummembership import PremiumMembership
-
-option=3
-savings=400 
 
 class TestPremiumMembersip(unittest.TestCase):
     @classmethod
@@ -51,22 +49,22 @@ class TestPremiumMembersip(unittest.TestCase):
 
     def test_analysis_and_suggestion(self):
         premium1=PremiumMembership()
-        option=int(input("In Premium test, enter option"))
-
-        self.assertEqual(option,1)
+        test_input = io.BytesIO(b"1\n")
+        sys.stdin = test_input
 
         result1=premium1.analysis_and_suggestion(10000)
-
         self.assertEqual(result1,2040)        
 
-        option=int(input("In Premium test, enter option"))
-        self.assertEqual(option,2)
+        input_text = b"2\n"
+        test_input.write(input_text)
+        test_input.seek(-len(input_text), io.SEEK_CUR)
 
         result1=premium1.analysis_and_suggestion(8000)
         self.assertAlmostEqual(result1,4080.001,2)
 
-        option=int(input("In Premium test, enter option"))
-        self.assertEqual(option,3)
+        input_text = b"3\n"
+        test_input.write(input_text)
+        test_input.seek(-len(input_text), io.SEEK_CUR)
 
         result1=premium1.analysis_and_suggestion(3000)
         self.assertAlmostEqual(result1,5100.001,2)
