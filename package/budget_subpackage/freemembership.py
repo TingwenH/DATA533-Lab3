@@ -5,9 +5,15 @@ class FreeMemberShip:
         self.__user_budget=user_budget
         self.__balance=0
     
-    @property
-    def user_budget(self):
+    
+    def get_user_budget(self):
         return self.__user_budget
+
+    def get_balance(self):
+        return self.__balance
+
+    def set_balance(self,balance):
+        self.__balance=balance
     
     def show_budget_chart(self):
         fig = go.Figure(go.Indicator(
@@ -30,18 +36,20 @@ class FreeMemberShip:
 
         fig.update_layout(paper_bgcolor = "lavender", font = {'color': "darkblue", 'family': "Arial"})
         fig.show()
+        
 
     def add_amount(self,amount):
         self.__balance+=amount
-        self.show_budget_chart()
+        self.show_budget_chart()        
         
 
     def withdraw_amount(self,amount):
         curr_balance=self.__balance-amount
         if(curr_balance<0):
-            print("Please enter lesser amount")
+            return "Please enter lesser amount"
         else:
             self.__balance=curr_balance   
-            self.show_budget_chart()                  
+            self.show_budget_chart()
+            return self.__balance                  
 
      

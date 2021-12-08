@@ -12,7 +12,7 @@ class BasicMembership:
         user_data=pd.read_excel('/home/saisree/Desktop/Labs/Block3/533-softwaredev/Lab2/Budget-Planning/package/budget_subpackage/user_data.xlsx')
         data=user_data.T
         data.columns=data.iloc[0].values        
-        data=data.iloc[1: , :]        
+        data=data.iloc[1: , :]    
         return data
 
     def expenditure_chart(self,monthly_allowance):
@@ -22,6 +22,7 @@ class BasicMembership:
         values=data.iloc[0].values/monthly_allowance      
         figure = px.pie(data,values=values,names=labels,hole=0.3,color_discrete_sequence=px.colors.sequential.RdBu)
         figure.show()
+        return [labels,values]
 
     def analysis_and_suggestion(self,monthly_allowance):               
         data=self.user_expenditure_data()  
