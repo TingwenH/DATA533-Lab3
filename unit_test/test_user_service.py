@@ -69,22 +69,22 @@ class test_user_service(unittest.TestCase):
             self.service2.choice(i)
             self.assertEqual(self.service2.getChoice(),i)
         self.service2.choice(5)
-        self.assertEqual(self.service2.getChoice(),-1)
+        self.assertEqual(self.service2.getChoice(),4)
         for i in range(1,5):
             self.service3.choice(i)
             self.assertEqual(self.service3.getChoice(),i)
         self.service3.choice(5)
-        self.assertEqual(self.service3.getChoice(),-1)
+        self.assertEqual(self.service3.getChoice(),4)
         for i in range(1,5):
             self.service4.choice(i)
             self.assertEqual(self.service4.getChoice(),i)
         self.service4.choice(5)
-        self.assertEqual(self.service4.getChoice(),-1)
+        self.assertEqual(self.service4.getChoice(),4)
         for i in range(1,5):
             self.service5.choice(i)
             self.assertEqual(self.service5.getChoice(),i)
         self.service5.choice(5)
-        self.assertEqual(self.service5.getChoice(),-1)
+        self.assertEqual(self.service5.getChoice(),4)
         print("test service_choice success ")
 
 if __name__ == '__main__':
