@@ -5,7 +5,7 @@ import package.user_subpackage as user
 import package.user_subpackage.personal_info as personal_info
 import package.user_subpackage.service as service
 import package.user_subpackage.bank_info as bank_info
-class test_user_personal_info(unittest.TestCase):
+class test_user_bank_info(unittest.TestCase):
     def setUp(self):
         self.password = bank_info.password("001","abc")
         self.password2 = bank_info.password("002","def")

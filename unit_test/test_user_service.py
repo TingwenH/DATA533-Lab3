@@ -64,7 +64,7 @@ class test_user_service(unittest.TestCase):
             self.service.choice(i)
             self.assertEqual(self.service.getChoice(),i)
         self.service.choice(5)
-        self.assertEqual(self.service.getChoice(),-1)
+        self.assertEqual(self.service.getChoice(),4)
         for i in range(1,5):
             self.service2.choice(i)
             self.assertEqual(self.service2.getChoice(),i)
